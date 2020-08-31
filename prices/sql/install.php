@@ -25,10 +25,13 @@
 */
 $sql = array();
 
-$sql[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'testmodule` (
-    `id_testmodule` int(11) NOT NULL AUTO_INCREMENT,
-    `string` VARCHAR(50) NOT NULL,
-    PRIMARY KEY  (`id_testmodule`)
+$sql[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'students` (
+    `id_students` int(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(24),
+    `bday_date` DATE,
+    `is_studying` BOOLEAN,
+    `avg_score` FLOAT,
+    PRIMARY KEY  (`id_students`)
 ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
 
 foreach ($sql as $query) {
