@@ -1,6 +1,6 @@
 <?php
 
-class AdminDemoController extends ModuleAdminController
+class AdminTestController extends ModuleAdminController
 {
     public function __construct()
     {

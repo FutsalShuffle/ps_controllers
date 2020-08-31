@@ -52,15 +52,18 @@ class Prices extends Module
 
     public function install()
     {
+        include(dirname(__FILE__).'/sql/install.php');
+
         Configuration::updateValue('MAX_PRICE', 0);
         Configuration::updateValue('MIN_PRICE', 0);
+
         $tab = new Tab();
         $tab->active = 1;
-        $tab->class_name = 'AdminDemo';
+        $tab->class_name = 'AdminTest';
         $tab->position = 3;
         $tab->name = array();
         foreach (Language::getLanguages(true) as $lang) {
-            $tab->name[$lang['id_lang']] = 'Demo Page';
+            $tab->name[$lang['id_lang']] = 'Test Page';
         }
         $tab->id_parent = (int) Tab::getIdFromClassName('SELL');
         $tab->module = $this->name;
@@ -75,6 +78,8 @@ class Prices extends Module
 
     public function uninstall()
     {
+        include(dirname(__FILE__).'/sql/uninstall.php');
+
         Configuration::deleteByName('MAX_PRICE');
         Configuration::deleteByName('MIN_PRICE');
 
