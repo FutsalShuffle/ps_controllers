@@ -10,12 +10,11 @@ class AdminTestController extends ModuleAdminController
 
     public function initContent()
     {
-        parent::initContent();
         include(_PS_MODULE_DIR_.'prices'.DIRECTORY_SEPARATOR.'/classes/Students.php');
         $students = new Students;
-        // $lol1->name = 'Andrey';
-        // $lol1->avg_score = 1.6;
-        // $lol1->add();
+        $students->name = 'Andrey';
+        $students->avg_score = 5;
+        $students->add();
         $names = $students->getAllNames();
         $avg_score = $students->getBestScore();
         $this->context->smarty->assign(
@@ -23,7 +22,8 @@ class AdminTestController extends ModuleAdminController
             'avg_score' => $avg_score,
             )
         );
+        $this->content .= $this->context->smarty->fetch('../modules/prices/views/templates/admin/test.tpl');
+        parent::initContent();
 
-        $this->setTemplate('test.tpl');
     }
 }
