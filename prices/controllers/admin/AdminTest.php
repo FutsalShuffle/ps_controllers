@@ -19,11 +19,11 @@ class AdminTestController extends ModuleAdminController
         $names = $students->getAllNames();
         $avg_score = $students->getBestScore();
         $this->context->smarty->assign(
-            array('names'=> $names)
+            array('names'=> $names,
+            'avg_score' => $avg_score,
+            )
         );
-        $this->context->smarty->assign(
-            array('avg_score' => $avg_score)
-        );
+
         $this->setTemplate('test.tpl');
     }
 }
